@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-const resisterUser = async (req, res) => {
+const registerUser = async (req, res) => {
   try {
     const existinguser = await prisma.user.findUnique({
       email: req.body.email,
@@ -22,13 +22,11 @@ const resisterUser = async (req, res) => {
       },
     });
 
-    res
-      .status(201)
-      .json({ message: "User created successfully", data: newUser });
+    res.status(201).json({ message: "User created successfully" });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
-module.exports = { resisterUser };
+module.exports = { registerUser };
