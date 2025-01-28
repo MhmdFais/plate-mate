@@ -34,6 +34,30 @@ const registerUser = async (req, res) => {
 
 const login = async (req, res) => {
   try {
+    const { email, password } = req.body;
+
+    const user = await prisma.user.findUnique({
+      where: {
+        email: email,
+      },
+    });
+
+    const checkPassword = await bcrypt.compare(password, user.password);
+
+    if (!user || !checkPassword) {
+      return res.status(400).json({ error: "Invalid credentials" });
+    }
+
+    const { accessToken, refreshToken } = generateToken(user);
+
+    await prisma.refreshToken.create({
+      data: {
+        token: refreshToken,
+        userId: user.id,
+      },
+    });
+
+    res.json({ accessToken, refreshToken });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Internal Server Error" });
