@@ -4,7 +4,7 @@ const passport = require("passport");
 const { PrismaClient } = require("@prisma/client");
 
 const loginRoute = require("./routes/loginRoute");
-const registerRouter = require("./routes/registerRoute");
+const registerRoute = require("./routes/registerRoute");
 
 const prisma = new PrismaClient();
 const app = express();
@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 
 app.use("/login", loginRoute);
-app.use("/register", registerRouter);
+app.use("/register", registerRoute);
 
 const PORT = process.env.PORT || 3000;
 

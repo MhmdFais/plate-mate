@@ -24,6 +24,7 @@ model User {
   updatedAt   DateTime    @updatedAt
 
   favoriteRecipes FavoriteRecipe[]
+  refreshTokens  RefreshToken[]
 }
 
 model FavoriteRecipe {
@@ -32,6 +33,16 @@ model FavoriteRecipe {
   recipeId    Int
   title       String
   addedAt     DateTime    @default(now())
+
+  user        User        @relation(fields: [userId], references: [id])
+}
+
+model RefreshToken {
+  id          Int         @id @default(autoincrement())
+  userId      Int
+  token       String      @unique
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 
   user        User        @relation(fields: [userId], references: [id])
 }
