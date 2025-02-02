@@ -32,40 +32,42 @@ function Login() {
   };
 
   return (
-    <div className="loginContainer">
-      <h1>Login</h1>
-      <div className="loginFormContainer">
-        <form onSubmit={handleSubmit}>
-          <div className="formElement">
-            <input
-              type="text"
-              placeholder="Name"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-            />
-          </div>
-          <div className="formElement">
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              required
-            />
-          </div>
-          <div className="formElement">
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              required
-            />
-          </div>
-          <button type="submit">Login</button>
-        </form>
+    <div className="mainContainer">
+      <div className="loginContainer">
+        <h1>Login</h1>
+        <div className="loginFormContainer">
+          <form onSubmit={handleSubmit}>
+            <div className="formElement">
+              <input
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              />
+            </div>
+            <div className="formElement">
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                required
+              />
+            </div>
+            <div className="formElement">
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                required
+              />
+            </div>
+            <button type="submit">Login</button>
+          </form>
+        </div>
+        <Link to="/register">Don not have an account? Register</Link>
       </div>
-      <Link to="/register">Don not have an account? Register</Link>
     </div>
   );
 }
