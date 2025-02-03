@@ -38,7 +38,9 @@ function Login() {
         <div className="loginFormContainer">
           <form onSubmit={handleSubmit}>
             <div className="formElement">
+              <label htmlFor="nameInput">Name</label>
               <input
+                id="nameInput"
                 type="text"
                 placeholder="Name"
                 value={name}
@@ -46,7 +48,9 @@ function Login() {
               />
             </div>
             <div className="formElement">
+              <label htmlFor="emailInput">Email</label>
               <input
+                id="emailInput"
                 type="email"
                 placeholder="Email"
                 value={email}
@@ -55,7 +59,9 @@ function Login() {
               />
             </div>
             <div className="formElement">
+              <label htmlFor="passwordInput">Password</label>
               <input
+                id="passwordInput"
                 type="password"
                 placeholder="Password"
                 value={password}
