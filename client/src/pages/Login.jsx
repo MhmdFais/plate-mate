@@ -17,7 +17,6 @@ function Login() {
       const response = await axios.post(`${API_URL}/login`, {
         email,
         password,
-        name,
       });
 
       const { accessToken, refreshToken } = response.data;
@@ -71,8 +70,10 @@ function Login() {
             </div>
             <button type="submit">Login</button>
           </form>
+          <p>
+            Do Not Have An Account? <Link to="/register">Register</Link>
+          </p>
         </div>
-        <Link to="/register">Don not have an account? Register</Link>
       </div>
     </div>
   );
