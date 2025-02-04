@@ -6,7 +6,7 @@ import "../assets/style/login.css";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
   const navigate = useNavigate();
 
   const API_URL = "http://localhost:3000";
@@ -37,7 +37,7 @@ function Login() {
         <h1>Login</h1>
         <div className="loginFormContainer">
           <form onSubmit={handleSubmit}>
-            <div className="formElement">
+            {/* <div className="formElement">
               <label htmlFor="nameInput">Name</label>
               <input
                 id="nameInput"
@@ -46,7 +46,7 @@ function Login() {
                 value={name}
                 onChange={(event) => setName(event.target.value)}
               />
-            </div>
+            </div> */}
             <div className="formElement">
               <label htmlFor="emailInput">Email</label>
               <input
