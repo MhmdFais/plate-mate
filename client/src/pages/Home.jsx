@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import RecipeCard from "../components/RecipeCard";
 
 function Home() {
   const [recipe, setRecipe] = useState([]);
-  const navigate = useNavigate();
 
   const API_URL = "http://localhost:3000";
 
