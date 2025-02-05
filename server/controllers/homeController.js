@@ -1,10 +1,6 @@
 const getRandomRecipe = async (req, res) => {
   try {
-    try {
-      const API = "https://api.spoonacular.com/recipes/complexSearch";
-    } catch (error) {
-      console.log(error);
-    }
+    const API = "https://api.spoonacular.com/recipes/complexSearch";
 
     const response = await fetch(API);
 
