@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Home() {
-  const [recipe, setRecipe] = useState("");
+  const [recipe, setRecipe] = useState([]);
 
   const API_URL = "http://localhost:3000";
 
@@ -13,9 +13,9 @@ function Home() {
 
       const data = response.data;
 
-      // setRecipe(data);
+      setRecipe(data.results || []);
 
-      console.log(data);
+      console.log(data.results);
     } catch (error) {
       console.error(error);
     }
