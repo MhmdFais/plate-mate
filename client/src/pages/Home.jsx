@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import RecipeCard from "../components/RecipeCard";
 
 function Home() {
   const [recipe, setRecipe] = useState([]);
+  const navigate = useNavigate();
 
   const API_URL = "http://localhost:3000";
 
@@ -24,6 +26,21 @@ function Home() {
   useEffect(() => {
     getRandomRecipe();
   }, []);
+
+  return (
+    <div className="mainContainer">
+      <div className="headingContainer">
+        <h1>Today Picks</h1>
+      </div>
+      <div className="recipiesContainer">
+        <div className="recipeCard" key={recipe.id}>
+          {recipe.map((recipe) => (
+            <RecipeCard recipe={recipe} key={recipe.id} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Home;
